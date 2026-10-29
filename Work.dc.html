@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Our work — SK Energy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&amp;display=swap">
+<script src="./site-data.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/motion@11.11.13/dist/motion.js"></script>
+<script src="./site-motion.js"></script>
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#F1F1EF;color:#0E1110;font-family:'Satoshi','Helvetica Neue',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:inherit;text-decoration:none}
+a:hover{color:inherit}
+button{font-family:inherit}
+:focus-visible{outline:2px solid #CBF24C;outline-offset:3px}
+::selection{background:#CBF24C;color:#0E1110}
+</style>
+</helmet>
+
+<dc-import name="SiteNav" active="work" hint-size="100%,84px"></dc-import>
+
+<main id="main">
+<section data-screen-label="Work hero" style="padding:150px clamp(16px,3.75vw,54px) 48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px clamp(32px,5vw,80px);align-items:end">
+  <div style="display:grid;gap:20px">
+    <p data-m="hero" style="margin:0;font-size:24px;font-weight:700;letter-spacing:-0.02em">Our work</p>
+    <h1 data-m="hero" style="margin:0;font-size:clamp(52px,7vw,108px);font-weight:700;line-height:.94;letter-spacing:-0.05em">Jobs we’re <span style="color:#A8CC2A">proud of.</span></h1>
+  </div>
+  <p data-m="hero" style="margin:0;max-width:520px;font-size:clamp(19px,1.6vw,23px);font-weight:500;line-height:1.45">Retrofits, commercial roofs and new-build developments across Fife and beyond — each designed around the property, not a package.</p>
+</section>
+
+<section aria-label="Projects" data-screen-label="Projects" style="padding:0 10px clamp(72px,8vw,120px)">
+  <div role="tablist" aria-label="Project type" style="display:flex;flex-wrap:wrap;gap:8px;padding:0 clamp(6px,3vw,44px) 28px">
+    <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4">
+      <button type="button" role="tab" aria-selected="{{ t.selected }}" onClick="{{ t.pick }}" style="display:flex;align-items:center;gap:8px;height:42px;padding:0 18px;border-radius:300px;border:1px solid {{ t.border }};background:{{ t.bg }};color:{{ t.fg }};font-size:14px;font-weight:700;cursor:pointer;transition:background .25s,color .25s">{{ t.label }}<span style="font-size:12px;opacity:.6">{{ t.count }}</span></button>
+    </sc-for>
+  </div>
+  <div data-m="grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,520px),1fr));gap:10px">
+    <sc-for list="{{ items }}" as="c" hint-placeholder-count="4">
+      <a href="{{ c.href }}" style="position:relative;display:block;height:clamp(420px,42vw,620px);overflow:hidden;background:#0E1110;color:#FFFFFF" style-hover="color:#FFFFFF">
+        <img src="{{ c.hero }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.05)">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,17,16,.35) 0%,rgba(14,17,16,0) 30%,rgba(14,17,16,0) 45%,rgba(14,17,16,.9) 100%);pointer-events:none"></div>
+        <div style="position:absolute;top:20px;left:20px;right:20px;display:flex;justify-content:space-between;gap:8px;pointer-events:none">
+          <span style="padding:7px 14px;border-radius:50px;background:#CBF24C;color:#0E1110;font-size:13px;font-weight:700">{{ c.type }}</span>
+          <span style="padding:7px 14px;border-radius:50px;border:1px solid rgba(255,255,255,.6);font-size:13px;font-weight:700">{{ c.place }}</span>
+        </div>
+        <div style="position:absolute;left:clamp(20px,2.4vw,32px);right:clamp(20px,2.4vw,32px);bottom:clamp(20px,2.4vw,32px);display:grid;gap:16px;pointer-events:none">
+          <h2 style="margin:0;font-size:clamp(30px,2.8vw,42px);font-weight:700;line-height:1;letter-spacing:-0.03em">{{ c.title }}</h2>
+          <div style="display:flex;flex-wrap:wrap;gap:8px 28px;border-top:1px solid rgba(255,255,255,.25);padding-top:14px">
+            <sc-for list="{{ c.statList }}" as="s" hint-placeholder-count="3">
+              <span style="display:grid;gap:2px"><span style="font-size:20px;font-weight:700">{{ s.v }}</span><span style="font-size:12px;font-weight:700;color:#B9BFB6">{{ s.l }}</span></span>
+            </sc-for>
+          </div>
+        </div>
+      </a>
+    </sc-for>
+  </div>
+</section>
+
+<section aria-labelledby="cta-h" data-screen-label="CTA" style="margin:0 10px 10px;padding:clamp(48px,6vw,88px) clamp(20px,3.5vw,54px);background:#CBF24C;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:32px">
+  <h2 id="cta-h" data-m="reveal" style="margin:0;max-width:760px;font-size:clamp(36px,4.4vw,64px);font-weight:700;line-height:1;letter-spacing:-0.04em">Your property could be next.</h2>
+  <a data-m="reveal" href="Contact.dc.html" style="display:flex;align-items:center;gap:14px;height:56px;padding:4px 4px 4px 26px;border-radius:300px;background:#0E1110;color:#FFFFFF;font-size:16px;font-weight:700" style-hover="background:#1B201E">Book a free consultation<span aria-hidden="true" style="width:48px;height:48px;border-radius:300px;background:#FFFFFF;color:#0E1110;display:grid;place-items:center">→</span></a>
+</section>
+</main>
+
+<dc-import name="SiteFooter" hint-size="100%,560px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { ready: !!window.SK, tab: 'All' };
+  TABS = ['All', 'Residential', 'Commercial', 'New build'];
+  match(c, t) { return t === 'All' || (t === 'Residential' ? /Residential/.test(c.type) : c.type === t); }
+  componentDidMount() {
+    if (!window.SK) { this.onReady = () => this.setState({ ready: true }); window.addEventListener('sk-ready', this.onReady); }
+    this.initMotion();
+  }
+  componentWillUnmount() { this.onReady && window.removeEventListener('sk-ready', this.onReady); clearTimeout(this.mt); }
+  componentDidUpdate(pp, ps) {
+    const M = window.Motion;
+    if (M && ps.tab !== this.state.tab && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) requestAnimationFrame(() => M.animate(document.querySelectorAll('[data-m="grid"] > a'), { opacity: [0, 1], transform: ['translateY(24px)', 'translateY(0px)'] }, { duration: 0.7, delay: M.stagger(0.06), ease: [0.22, 1, 0.36, 1] }));
+  }
+  initMotion() {
+    const M = window.Motion;
+    if (!M) { this.mt = setTimeout(() => this.initMotion(), 120); return; }
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    requestAnimationFrame(() => {
+      const { animate, inView, stagger } = M; const ease = [0.22, 1, 0.36, 1];
+      const q = (s) => Array.from(document.querySelectorAll(s));
+      animate(q('[data-m="hero"]'), { opacity: [0, 1], transform: ['translateY(40px)', 'translateY(0px)'] }, { duration: 1.1, delay: stagger(0.08, { startDelay: 0.1 }), ease });
+      q('[data-m="reveal"]').forEach(el => { el.style.opacity = '0'; inView(el, () => { animate(el, { opacity: [0, 1], transform: ['translateY(48px)', 'translateY(0px)'] }, { duration: 1, ease }); }, { amount: 0.15 }); });
+    });
+  }
+  renderVals() {
+    const SK = window.SK, st = this.state;
+    const cases = SK ? SK.CASES : [];
+    return {
+      tabs: this.TABS.map(t => { const on = st.tab === t; return { label: t, count: cases.filter(c => this.match(c, t)).length, selected: on ? 'true' : 'false', bg: on ? '#0E1110' : 'transparent', fg: on ? '#CBF24C' : '#0E1110', border: on ? '#0E1110' : '#D3D6D0', pick: () => this.setState({ tab: t }) }; }),
+      items: cases.filter(c => this.match(c, st.tab)).map(c => ({ ...c, href: SK.page.caseStudy(c.slug), statList: c.stats.map(([v, l]) => ({ v, l })) }))
+    };
+  }
+}
+</script>
+</body>
+</html>
