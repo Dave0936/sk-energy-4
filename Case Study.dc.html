@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>{{ docTitle }}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&amp;display=swap">
+<script src="./site-data.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/motion@11.11.13/dist/motion.js"></script>
+<script src="./site-motion.js"></script>
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#F1F1EF;color:#0E1110;font-family:'Satoshi','Helvetica Neue',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:inherit;text-decoration:none}
+a:hover{color:inherit}
+:focus-visible{outline:2px solid #CBF24C;outline-offset:3px}
+::selection{background:#CBF24C;color:#0E1110}
+</style>
+</helmet>
+
+<dc-import name="SiteNav" active="work" hint-size="100%,84px"></dc-import>
+
+<main id="main">
+<section data-screen-label="Case hero" style="padding:118px clamp(16px,3.75vw,54px) 40px;display:grid;gap:28px">
+  <nav aria-label="Breadcrumb" data-m="hero" style="display:flex;gap:10px;font-size:14px;font-weight:700;color:#6C7566"><a href="Work.dc.html" style-hover="color:#0E1110">Our work</a><span aria-hidden="true">/</span><span style="color:#0E1110">{{ c.title }}</span></nav>
+  <div style="display:flex;flex-wrap:wrap;gap:8px" data-m="hero">
+    <span style="padding:8px 16px;border-radius:50px;background:#0E1110;color:#CBF24C;font-size:15px;font-weight:700">{{ c.type }}</span>
+    <span style="padding:8px 16px;border-radius:50px;border:1px solid #0E1110;font-size:15px;font-weight:700">{{ c.place }}</span>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px clamp(32px,5vw,80px);align-items:end">
+    <h1 data-m="hero" style="margin:0;font-size:clamp(48px,6.4vw,100px);font-weight:700;line-height:.95;letter-spacing:-0.05em;text-wrap:balance">{{ c.title }}</h1>
+    <p data-m="hero" style="margin:0;font-size:clamp(19px,1.6vw,23px);font-weight:500;line-height:1.45;text-wrap:pretty">{{ c.lead }}</p>
+  </div>
+</section>
+
+<section data-screen-label="Case image" style="padding:0 10px">
+  <div data-m="hero-panel" style="position:relative;height:clamp(420px,58vw,820px);overflow:hidden;background:#E8E8E5">
+    <img src="{{ c.hero }}" alt="{{ c.title }}" data-m="parallax" style="position:absolute;inset:-6% 0;width:100%;height:112%;object-fit:cover;display:block">
+  </div>
+  <dl style="margin:10px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:10px">
+    <sc-for list="{{ stats }}" as="s" hint-placeholder-count="3">
+      <div data-m="reveal" style="display:grid;gap:8px;padding:28px;background:{{ s.bg }}">
+        <dt style="order:2;font-size:14px;font-weight:700;color:#3A403B">{{ s.l }}</dt>
+        <dd style="margin:0;font-size:clamp(36px,3.6vw,56px);font-weight:700;line-height:1;letter-spacing:-0.04em">{{ s.v }}</dd>
+      </div>
+    </sc-for>
+  </dl>
+</section>
+
+<section aria-label="Project story" data-screen-label="Story" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:48px clamp(32px,5vw,80px);padding:clamp(72px,8vw,120px) clamp(16px,3.75vw,54px)">
+  <aside data-m="reveal" style="display:grid;gap:16px;align-content:start">
+    <h2 style="margin:0;font-size:14px;font-weight:700;color:#6C7566">System installed</h2>
+    <ul style="list-style:none;margin:0;padding:0;display:grid;border-top:1px solid #D3D6D0">
+      <sc-for list="{{ system }}" as="x" hint-placeholder-count="3">
+        <li style="display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid #D3D6D0;font-size:17px;font-weight:700"><span aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:#CBF24C;box-shadow:0 0 0 1px #0E1110"></span>{{ x.t }}</li>
+      </sc-for>
+    </ul>
+  </aside>
+  <div style="grid-column:span 2;display:grid;gap:48px;max-width:820px">
+    <sc-for list="{{ story }}" as="b" hint-placeholder-count="3">
+      <div data-m="reveal" style="display:grid;gap:14px">
+        <h2 style="margin:0;font-size:clamp(28px,2.6vw,38px);font-weight:700;letter-spacing:-0.03em">{{ b.h }}</h2>
+        <p style="margin:0;font-size:clamp(18px,1.4vw,20px);font-weight:500;line-height:1.6;color:#3A403B;text-wrap:pretty">{{ b.p }}</p>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section aria-label="Gallery" data-screen-label="Gallery" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:10px;padding:0 10px">
+  <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="2">
+    <div data-m="reveal" style="position:relative;aspect-ratio:4/3;overflow:hidden;background:#E8E8E5"><img src="{{ g.src }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+  </sc-for>
+</section>
+
+<section aria-label="Customer quote" data-screen-label="Quote" style="padding:clamp(72px,8vw,120px) clamp(16px,3.75vw,54px);display:grid;justify-items:center;text-align:center;gap:24px">
+  <span aria-hidden="true" data-m="reveal" style="font-size:96px;line-height:.6;font-weight:900;color:#A8CC2A">“</span>
+  <blockquote data-fill="" style="margin:0;max-width:980px;font-size:clamp(30px,3.4vw,50px);font-weight:700;line-height:1.15;letter-spacing:-0.03em;text-wrap:balance">{{ c.quoteText }}</blockquote>
+  <p data-m="reveal" style="margin:0;font-size:15px;font-weight:700;color:#6C7566">— {{ c.quoteBy }}</p>
+</section>
+
+<section aria-labelledby="next-h" data-screen-label="Next project" style="padding:0 10px 10px">
+  <a href="{{ next.href }}" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:10px;background:#0E1110;color:#FFFFFF" style-hover="color:#FFFFFF">
+    <div style="display:grid;gap:20px;align-content:space-between;padding:clamp(32px,4vw,56px)">
+      <span style="font-size:15px;font-weight:700;color:#CBF24C">Next project</span>
+      <h2 id="next-h" style="margin:0;font-size:clamp(36px,4.2vw,62px);font-weight:700;line-height:1;letter-spacing:-0.04em">{{ next.title }} →</h2>
+      <span style="font-size:15px;font-weight:700;color:#B9BFB6">{{ next.type }} · {{ next.place }}</span>
+    </div>
+    <div style="position:relative;min-height:360px;overflow:hidden"><img src="{{ next.hero }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.05)"></div>
+  </a>
+</section>
+
+<section aria-labelledby="cta-h" data-screen-label="CTA" style="margin:0 10px 10px;padding:clamp(48px,6vw,88px) clamp(20px,3.5vw,54px);background:#CBF24C;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:32px">
+  <h2 id="cta-h" data-m="reveal" style="margin:0;max-width:760px;font-size:clamp(36px,4.4vw,64px);font-weight:700;line-height:1;letter-spacing:-0.04em">Planning something similar?</h2>
+  <a data-m="reveal" href="Contact.dc.html" style="display:flex;align-items:center;gap:14px;height:56px;padding:4px 4px 4px 26px;border-radius:300px;background:#0E1110;color:#FFFFFF;font-size:16px;font-weight:700" style-hover="background:#1B201E">Talk to our team<span aria-hidden="true" style="width:48px;height:48px;border-radius:300px;background:#FFFFFF;color:#0E1110;display:grid;place-items:center">→</span></a>
+</section>
+</main>
+
+<dc-import name="SiteFooter" hint-size="100%,560px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;slug&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;kinross-farmhouse&quot;,&quot;rosyth-workshop&quot;,&quot;halbeath-development&quot;,&quot;dunfermline-semi&quot;,&quot;perthshire-new-home&quot;,&quot;barn-conversion&quot;],&quot;default&quot;:&quot;kinross-farmhouse&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { ready: !!window.SK };
+  componentDidMount() {
+    if (!window.SK) { this.onReady = () => this.setState({ ready: true }); window.addEventListener('sk-ready', this.onReady); }
+    this.initMotion();
+  }
+  componentWillUnmount() { this.onReady && window.removeEventListener('sk-ready', this.onReady); clearTimeout(this.mt); }
+  initMotion() {
+    const M = window.Motion;
+    if (!M || !window.SK) { this.mt = setTimeout(() => this.initMotion(), 120); return; }
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    requestAnimationFrame(() => {
+      const { animate, inView, scroll, stagger } = M; const ease = [0.22, 1, 0.36, 1];
+      const q = (s) => Array.from(document.querySelectorAll(s));
+      animate(q('[data-m="hero"]'), { opacity: [0, 1], transform: ['translateY(40px)', 'translateY(0px)'] }, { duration: 1.1, delay: stagger(0.08, { startDelay: 0.1 }), ease });
+      q('[data-m="hero-panel"]').forEach(el => animate(el, { clipPath: ['inset(100% 0% 0% 0%)', 'inset(0% 0% 0% 0%)'] }, { duration: 1.4, delay: 0.2, ease }));
+      q('[data-m="reveal"]').forEach(el => { el.style.opacity = '0'; inView(el, () => { animate(el, { opacity: [0, 1], transform: ['translateY(48px)', 'translateY(0px)'] }, { duration: 1, ease }); }, { amount: 0.15 }); });
+      q('[data-m="parallax"]').forEach(el => scroll(animate(el, { transform: ['translateY(-5%)', 'translateY(5%)'] }, { ease: 'linear' }), { target: el.parentElement, offset: ['start end', 'end start'] }));
+    });
+  }
+  renderVals() {
+    const SK = window.SK;
+    if (!SK) return { c: {}, stats: [], system: [], story: [], gallery: [], next: {}, docTitle: 'SK Energy' };
+    const slug = SK.slug() || this.props.slug || SK.CASES[0].slug;
+    const i = Math.max(0, SK.CASES.findIndex(x => x.slug === slug));
+    const c = SK.CASES[i], n = SK.CASES[(i + 1) % SK.CASES.length];
+    return {
+      docTitle: c.title + ' — SK Energy case study',
+      c: { ...c, quoteText: c.quote[0], quoteBy: c.quote[1] },
+      stats: c.stats.map(([v, l], k) => ({ v, l, bg: k === 0 ? '#CBF24C' : '#FFFFFF' })),
+      system: c.system.map(t => ({ t })),
+      story: [['The challenge', c.challenge], ['What we did', c.solution], ['The result', c.result]].map(([h, p]) => ({ h, p })),
+      gallery: c.gallery.map(src => ({ src })),
+      next: { ...n, href: SK.page.caseStudy(n.slug) }
+    };
+  }
+}
+</script>
+</body>
+</html>

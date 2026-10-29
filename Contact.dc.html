@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Contact SK Energy — book a free consultation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&amp;display=swap">
+<script src="https://cdn.jsdelivr.net/npm/motion@11.11.13/dist/motion.js"></script>
+<script src="./site-motion.js"></script>
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#F1F1EF;color:#0E1110;font-family:'Satoshi','Helvetica Neue',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:inherit;text-decoration:none}
+a:hover{color:inherit}
+button,input,select,textarea{font-family:inherit}
+:focus-visible{outline:2px solid #CBF24C;outline-offset:3px}
+::selection{background:#CBF24C;color:#0E1110}
+</style>
+</helmet>
+
+<dc-import name="SiteNav" hint-size="100%,84px"></dc-import>
+
+<main id="main">
+<section data-screen-label="Contact" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:10px;padding:10px">
+  <div style="display:grid;gap:40px;align-content:space-between;padding:140px clamp(6px,1.6vw,22px) 24px">
+    <div style="display:grid;gap:24px">
+      <p data-m="hero" style="margin:0;font-size:24px;font-weight:700;letter-spacing:-0.02em">Contact</p>
+      <h1 data-m="hero" style="margin:0;font-size:clamp(48px,6.2vw,96px);font-weight:700;line-height:.95;letter-spacing:-0.05em;text-wrap:balance">Let’s talk about <span style="color:#A8CC2A">your property.</span></h1>
+      <p data-m="hero" style="margin:0;max-width:520px;font-size:clamp(19px,1.6vw,22px);font-weight:500;line-height:1.45">Send us a few details and we’ll come back with the options worth surveying — or tell you honestly if now isn’t the time.</p>
+    </div>
+    <div data-m="hero" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:24px;padding-top:28px;border-top:1px solid #D3D6D0">
+      <div style="display:grid;gap:8px"><span style="font-size:13px;font-weight:700;color:#6C7566">Call</span><a href="tel:+441383257022" style="font-size:22px;font-weight:700;letter-spacing:-0.02em" style-hover="color:#6C7566">01383 257022</a></div>
+      <div style="display:grid;gap:8px"><span style="font-size:13px;font-weight:700;color:#6C7566">Email</span><a href="mailto:customerservice@sk-energy.co.uk" style="font-size:17px;font-weight:700;word-break:break-word" style-hover="color:#6C7566">customerservice@sk-energy.co.uk</a></div>
+    </div>
+    <div data-m="hero" style="position:relative;min-height:280px;overflow:hidden"><img src="./img/lib/28.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+  </div>
+
+  <div style="padding:clamp(24px,3vw,48px);background:#0E1110;color:#FFFFFF;display:grid;align-content:start;gap:28px">
+    <div style="display:grid;gap:10px;padding-top:clamp(0px,6vw,90px)">
+      <h2 style="margin:0;font-size:clamp(30px,2.8vw,42px);font-weight:700;letter-spacing:-0.03em">Book a free consultation</h2>
+      <p style="margin:0;font-size:15px;font-weight:500;color:#B9BFB6">Fields marked * are required.</p>
+    </div>
+    <sc-if value="{{ isSuccess }}" hint-placeholder-val="{{ false }}">
+      <div role="status" style="padding:28px;background:#CBF24C;color:#0E1110;display:grid;gap:8px"><strong style="font-size:24px">Thanks — we’ve got your enquiry.</strong><span style="font-size:16px;font-weight:500">We’ll be in touch within one working day.</span></div>
+    </sc-if>
+    <form noValidate="" onSubmit="{{ submit }}" style="display:grid;gap:18px">
+      <sc-for list="{{ fields }}" as="f" hint-placeholder-count="4">
+        <div style="display:grid;gap:8px">
+          <label for="{{ f.id }}" style="font-size:14px;font-weight:700">{{ f.label }}</label>
+          <input id="{{ f.id }}" type="{{ f.type }}" autoComplete="{{ f.ac }}" value="{{ f.value }}" onChange="{{ f.onChange }}" aria-invalid="{{ f.invalid }}" aria-describedby="{{ f.errId }}" style="height:54px;padding:0 18px;border:1px solid {{ f.border }};background:#1B201E;color:#FFFFFF;font-size:16px">
+          <sc-if value="{{ f.hasErr }}" hint-placeholder-val="{{ false }}"><span id="{{ f.errId }}" style="font-size:14px;font-weight:700;color:#FF8A73">{{ f.err }}</span></sc-if>
+        </div>
+      </sc-for>
+      <div style="display:grid;gap:8px">
+        <label for="c-service" style="font-size:14px;font-weight:700">Service of interest *</label>
+        <select id="c-service" value="{{ service }}" onChange="{{ setService }}" aria-invalid="{{ serviceInvalid }}" style="height:54px;padding:0 14px;border:1px solid {{ serviceBorder }};background:#1B201E;color:#FFFFFF;font-size:16px">
+          <option value="">Choose a service</option>
+          <sc-for list="{{ serviceOptions }}" as="o" hint-placeholder-count="8"><option value="{{ o.v }}">{{ o.v }}</option></sc-for>
+        </select>
+        <sc-if value="{{ serviceHasErr }}" hint-placeholder-val="{{ false }}"><span style="font-size:14px;font-weight:700;color:#FF8A73">{{ serviceErr }}</span></sc-if>
+      </div>
+      <div style="display:grid;gap:8px">
+        <label for="c-details" style="font-size:14px;font-weight:700">Tell us about your property</label>
+        <textarea id="c-details" rows="4" value="{{ details }}" onChange="{{ setDetails }}" style="padding:14px 18px;border:1px solid #363C38;background:#1B201E;color:#FFFFFF;font-size:16px;resize:vertical"></textarea>
+      </div>
+      <label style="display:flex;gap:12px;align-items:flex-start;font-size:14px;font-weight:500;line-height:1.45;color:#E8E8E5;cursor:pointer"><input type="checkbox" checked="{{ consent }}" onChange="{{ setConsent }}" aria-invalid="{{ consentInvalid }}" style="width:20px;height:20px;margin:0;accent-color:#CBF24C;flex:none"><span>I agree to SK Energy using these details to respond to my enquiry. *</span></label>
+      <sc-if value="{{ consentHasErr }}" hint-placeholder-val="{{ false }}"><span style="font-size:14px;font-weight:700;color:#FF8A73">{{ consentErr }}</span></sc-if>
+      <button type="submit" style="display:flex;align-items:center;justify-content:space-between;gap:14px;height:58px;padding:4px 4px 4px 26px;border-radius:300px;border:0;background:#CBF24C;color:#0E1110;font-size:16px;font-weight:700;cursor:pointer" style-hover="background:#FFFFFF">Send enquiry<span aria-hidden="true" style="width:50px;height:50px;border-radius:300px;background:#0E1110;color:#CBF24C;display:grid;place-items:center">→</span></button>
+      <p aria-live="polite" style="margin:0;min-height:20px;font-size:14px;font-weight:700;color:#FF8A73">{{ statusMsg }}</p>
+    </form>
+  </div>
+</section>
+
+<section aria-labelledby="off-h" data-screen-label="Offices" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:10px;padding:0 10px 10px">
+  <h2 id="off-h" style="position:absolute;left:-9999px">Our offices</h2>
+  <address data-m="reveal" style="display:grid;gap:12px;padding:32px;background:#FFFFFF;font-style:normal"><strong style="font-size:24px;letter-spacing:-0.02em">Fife Office</strong><span style="font-size:16px;font-weight:500;line-height:1.55">Suite 2, Abtel Building, Pitreavie Business Park, Pitreavie Drive, Dunfermline, KY11 8US</span><a href="https://maps.google.com/?q=Abtel+Building+Pitreavie+Business+Park+KY11+8US" target="_blank" rel="noopener" style="justify-self:start;font-size:14px;font-weight:700;border-bottom:1.5px solid #CBF24C">Get directions →</a></address>
+  <address data-m="reveal" style="display:grid;gap:12px;padding:32px;background:#FFFFFF;font-style:normal"><strong style="font-size:24px;letter-spacing:-0.02em">York Office</strong><span style="font-size:16px;font-weight:500;line-height:1.55">Tower Court Business Centre, Oakdale Road, Clifton Moor, York, YO30 4XL</span><a href="https://maps.google.com/?q=Tower+Court+Business+Centre+YO30+4XL" target="_blank" rel="noopener" style="justify-self:start;font-size:14px;font-weight:700;border-bottom:1.5px solid #CBF24C">Get directions →</a></address>
+  <div data-m="reveal" style="display:grid;gap:12px;padding:32px;background:#CBF24C"><strong style="font-size:24px;letter-spacing:-0.02em">Already a customer?</strong><span style="font-size:16px;font-weight:500;line-height:1.55">Register your warranty or request a service visit.</span><a href="https://sk-energy.co.uk/warranty-registration/" style="justify-self:start;font-size:14px;font-weight:700;border-bottom:1.5px solid #0E1110">Warranty registration →</a></div>
+</section>
+</main>
+
+<dc-import name="SiteFooter" hint-size="100%,560px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;submitEndpoint&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { f: { name: '', email: '', phone: '', postcode: '' }, service: '', details: '', consent: false, errors: {}, status: 'idle' };
+  componentDidMount() { this.initMotion(); }
+  componentWillUnmount() { clearTimeout(this.mt); }
+  initMotion() {
+    const M = window.Motion;
+    if (!M) { this.mt = setTimeout(() => this.initMotion(), 120); return; }
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    requestAnimationFrame(() => {
+      const { animate, inView, stagger } = M; const ease = [0.22, 1, 0.36, 1];
+      const q = (s) => Array.from(document.querySelectorAll(s));
+      animate(q('[data-m="hero"]'), { opacity: [0, 1], transform: ['translateY(40px)', 'translateY(0px)'] }, { duration: 1.1, delay: stagger(0.08, { startDelay: 0.1 }), ease });
+      q('[data-m="reveal"]').forEach(el => { el.style.opacity = '0'; inView(el, () => { animate(el, { opacity: [0, 1], transform: ['translateY(48px)', 'translateY(0px)'] }, { duration: 1, ease }); }, { amount: 0.15 }); });
+    });
+  }
+  validate() {
+    const { f, service, consent } = this.state, e = {};
+    if (!f.name.trim()) e.name = 'Please enter your name.';
+    if (!f.email.trim()) e.email = 'Please enter your email address.';
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email.trim())) e.email = 'Please enter a valid email address, like name@example.com.';
+    if (f.phone.trim() && !/^[+\d][\d\s()-]{7,}$/.test(f.phone.trim())) e.phone = 'Please check this phone number.';
+    if (!f.postcode.trim()) e.postcode = 'Please enter your postcode.';
+    else if (!/^[A-Z]{1,2}\d[A-Z\d]?\s*\d[A-Z]{2}$/i.test(f.postcode.trim())) e.postcode = 'Please enter a valid UK postcode, like KY11 8US.';
+    if (!service) e.service = 'Please choose a service.';
+    if (!consent) e.consent = 'Please confirm we can use your details to respond.';
+    return e;
+  }
+  async submit(ev) {
+    ev.preventDefault();
+    const errors = this.validate();
+    this.setState({ errors, status: 'idle' });
+    if (Object.keys(errors).length) { requestAnimationFrame(() => { const el = document.querySelector('[aria-invalid="true"]'); el && el.focus(); }); return; }
+    const endpoint = (this.props.submitEndpoint || '').trim();
+    if (!endpoint) { this.setState({ status: 'error', msg: 'Online enquiries aren’t connected yet, so this form hasn’t been sent. Please call or email us.' }); return; }
+    try {
+      const r = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...this.state.f, service: this.state.service, details: this.state.details }) });
+      if (!r.ok) throw new Error(r.status);
+      this.setState({ status: 'success', f: { name: '', email: '', phone: '', postcode: '' }, service: '', details: '', consent: false });
+    } catch (e) { this.setState({ status: 'error', msg: 'Sorry — something went wrong and your enquiry wasn’t sent.' }); }
+  }
+  renderVals() {
+    const st = this.state, er = st.errors;
+    const defs = [['name', 'Full name *', 'text', 'name'], ['email', 'Email *', 'email', 'email'], ['phone', 'Phone', 'tel', 'tel'], ['postcode', 'Postcode *', 'text', 'postal-code']];
+    return {
+      fields: defs.map(([k, label, type, ac]) => ({ id: 'c-' + k, label, type, ac, value: st.f[k], errId: 'c-' + k + '-err', err: er[k] || '', hasErr: !!er[k], invalid: er[k] ? 'true' : 'false', border: er[k] ? '#FF8A73' : '#363C38',
+        onChange: (e) => { const v = e.target.value; this.setState(s => ({ f: { ...s.f, [k]: v }, errors: { ...s.errors, [k]: undefined } })); } })),
+      serviceOptions: ['Solar PV', 'Battery Storage', 'Heat Pumps', 'EV Chargers', 'Underfloor Heating', 'Not sure yet'].map(v => ({ v })),
+      service: st.service, setService: (e) => this.setState({ service: e.target.value, errors: { ...st.errors, service: undefined } }),
+      serviceHasErr: !!er.service, serviceErr: er.service || '', serviceInvalid: er.service ? 'true' : 'false', serviceBorder: er.service ? '#FF8A73' : '#363C38',
+      details: st.details, setDetails: (e) => this.setState({ details: e.target.value }),
+      consent: st.consent, setConsent: (e) => this.setState({ consent: e.target.checked, errors: { ...st.errors, consent: undefined } }),
+      consentHasErr: !!er.consent, consentErr: er.consent || '', consentInvalid: er.consent ? 'true' : 'false',
+      submit: (e) => this.submit(e), isSuccess: st.status === 'success', statusMsg: st.status === 'error' ? st.msg : ''
+    };
+  }
+}
+</script>
+</body>
+</html>

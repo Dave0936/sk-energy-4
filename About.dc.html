@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>About SK Energy — renewable energy specialists in Fife &amp; York</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&amp;display=swap">
+<script src="https://cdn.jsdelivr.net/npm/motion@11.11.13/dist/motion.js"></script>
+<script src="./site-motion.js"></script>
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#F1F1EF;color:#0E1110;font-family:'Satoshi','Helvetica Neue',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:inherit;text-decoration:none}
+a:hover{color:inherit}
+:focus-visible{outline:2px solid #CBF24C;outline-offset:3px}
+::selection{background:#CBF24C;color:#0E1110}
+</style>
+</helmet>
+
+<dc-import name="SiteNav" active="about" hint-size="100%,84px"></dc-import>
+
+<main id="main">
+<section data-screen-label="About hero" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:10px;padding:10px;min-height:min(100vh,920px)">
+  <div style="display:flex;flex-direction:column;justify-content:space-between;gap:48px;padding:140px clamp(6px,1.6vw,22px) 24px">
+    <div style="display:grid;gap:24px">
+      <p data-m="hero" style="margin:0;font-size:24px;font-weight:700;letter-spacing:-0.02em">About SK Energy</p>
+      <h1 data-m="hero" style="margin:0;font-size:clamp(48px,6.4vw,100px);font-weight:700;line-height:.95;letter-spacing:-0.05em;text-wrap:balance">Honest advice. <span style="color:#A8CC2A">Careful work.</span> One team.</h1>
+    </div>
+    <p data-m="hero" style="margin:0;max-width:540px;font-size:clamp(19px,1.6vw,23px);font-weight:500;line-height:1.45">We design, install and maintain renewable energy systems for homes, businesses and developers — from our base at Pitreavie in Fife and our office in York.</p>
+  </div>
+  <div data-m="hero-panel" style="position:relative;min-height:520px;overflow:hidden;background:#E8E8E5">
+    <img src="./img/lib/42.jpg" alt="An SK Energy adviser talking with a homeowner outside a stone house" data-m="parallax" style="position:absolute;inset:-6% 0;width:100%;height:112%;object-fit:cover;display:block">
+  </div>
+</section>
+
+<section aria-labelledby="story-h" data-screen-label="Story" style="padding:clamp(72px,8vw,120px) clamp(16px,3.75vw,54px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:32px clamp(32px,5vw,80px)">
+  <p data-m="reveal" style="margin:0;font-size:24px;font-weight:700;letter-spacing:-0.02em">Our story</p>
+  <div style="grid-column:span 2;display:grid;gap:28px;max-width:900px">
+    <h2 id="story-h" data-fill="" style="margin:0;font-size:clamp(30px,3.2vw,46px);font-weight:700;line-height:1.15;letter-spacing:-0.03em;text-wrap:pretty">We started SK Energy because too many homeowners were being sold <span style="color:#A8CC2A">packages</span>, not systems designed for their property.</h2>
+    <p data-m="reveal" style="margin:0;font-size:clamp(18px,1.4vw,20px);font-weight:500;line-height:1.6;color:#3A403B">Every job starts with a proper survey and an honest conversation — including telling you when something isn’t worth doing yet. Our own accredited engineers carry out every installation, and the same team stays with you for servicing and support.</p>
+  </div>
+</section>
+
+<section aria-label="Key facts" data-screen-label="Stats" style="padding:0 10px">
+  <dl style="margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:10px">
+    <div data-m="reveal" style="display:grid;gap:10px;padding:32px;background:#CBF24C"><dt style="order:2;font-size:15px;font-weight:700">Technologies under one contract</dt><dd style="margin:0;font-size:clamp(48px,5vw,80px);font-weight:700;line-height:1;letter-spacing:-0.05em" data-count="5">5</dd></div>
+    <div data-m="reveal" style="display:grid;gap:10px;padding:32px;background:#FFFFFF"><dt style="order:2;font-size:15px;font-weight:700">Offices — Fife and York</dt><dd style="margin:0;font-size:clamp(48px,5vw,80px);font-weight:700;line-height:1;letter-spacing:-0.05em" data-count="2">2</dd></div>
+    <div data-m="reveal" style="display:grid;gap:10px;padding:32px;background:#FFFFFF"><dt style="order:2;font-size:15px;font-weight:700">In-house team, never subcontracted</dt><dd style="margin:0;font-size:clamp(48px,5vw,80px);font-weight:700;line-height:1;letter-spacing:-0.05em" data-count="1">1</dd></div>
+    <div data-m="reveal" style="display:grid;gap:10px;padding:32px;background:#0E1110;color:#FFFFFF"><dt style="order:2;font-size:15px;font-weight:700;color:#B9BFB6">MCS certified &amp; TrustMark endorsed</dt><dd style="margin:0;font-size:clamp(48px,5vw,80px);font-weight:700;line-height:1;letter-spacing:-0.05em;color:#CBF24C">MCS</dd></div>
+  </dl>
+</section>
+
+<section aria-labelledby="val-h" data-screen-label="Values" style="padding:clamp(72px,8vw,120px) clamp(16px,3.75vw,54px)">
+  <h2 id="val-h" data-m="reveal" style="margin:0 0 40px;font-size:clamp(34px,3.6vw,52px);font-weight:700;line-height:1.1;letter-spacing:-0.03em">What we <span style="color:#A8CC2A">stand by</span></h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:10px">
+    <div data-m="reveal" style="display:grid;gap:14px;padding:28px 0;border-top:2px solid #0E1110"><h3 style="margin:0;font-size:24px;font-weight:700;letter-spacing:-0.02em">Straight answers</h3><p style="margin:0;font-size:16px;font-weight:500;line-height:1.55;color:#3A403B">Clear numbers you can check before anything is ordered — and honesty when it isn’t the right time.</p></div>
+    <div data-m="reveal" style="display:grid;gap:14px;padding:28px 0;border-top:2px solid #0E1110"><h3 style="margin:0;font-size:24px;font-weight:700;letter-spacing:-0.02em">Designed, not packaged</h3><p style="margin:0;font-size:16px;font-weight:500;line-height:1.55;color:#3A403B">Every system is specified around the property, the household and future plans.</p></div>
+    <div data-m="reveal" style="display:grid;gap:14px;padding:28px 0;border-top:2px solid #0E1110"><h3 style="margin:0;font-size:24px;font-weight:700;letter-spacing:-0.02em">Installed to last</h3><p style="margin:0;font-size:16px;font-weight:500;line-height:1.55;color:#3A403B">Our own accredited engineers, careful workmanship and tidy sites.</p></div>
+    <div data-m="reveal" style="display:grid;gap:14px;padding:28px 0;border-top:2px solid #0E1110"><h3 style="margin:0;font-size:24px;font-weight:700;letter-spacing:-0.02em">Here afterwards</h3><p style="margin:0;font-size:16px;font-weight:500;line-height:1.55;color:#3A403B">Monitoring, servicing and the same team on the end of the phone.</p></div>
+  </div>
+</section>
+
+<div data-marquee="left" aria-hidden="true" style="overflow:hidden;background:#CBF24C;padding:clamp(22px,3vw,40px) 0">
+  <div data-marquee-track="" style="display:flex;width:max-content;will-change:transform"><div style="display:flex;align-items:center;gap:clamp(28px,4vw,56px);padding-right:clamp(28px,4vw,56px);flex:none"><span style="font-size:clamp(44px,7vw,112px);font-weight:700;letter-spacing:-0.04em;line-height:1;white-space:nowrap;color:#0E1110">Warmer homes</span><span style="width:clamp(14px,1.4vw,22px);height:clamp(14px,1.4vw,22px);border-radius:50%;background:#0E1110;flex:none"></span><span style="font-size:clamp(44px,7vw,112px);font-weight:700;letter-spacing:-0.04em;line-height:1;white-space:nowrap;color:#0E1110">Lower bills</span><span style="width:clamp(14px,1.4vw,22px);height:clamp(14px,1.4vw,22px);border-radius:50%;background:#0E1110;flex:none"></span><span style="font-size:clamp(44px,7vw,112px);font-weight:700;letter-spacing:-0.04em;line-height:1;white-space:nowrap;color:#0E1110">A secure tomorrow</span><span style="width:clamp(14px,1.4vw,22px);height:clamp(14px,1.4vw,22px);border-radius:50%;background:#0E1110;flex:none"></span></div><div style="display:flex;align-items:center;gap:clamp(28px,4vw,56px);padding-right:clamp(28px,4vw,56px);flex:none"><span style="font-size:clamp(44px,7vw,112px);font-weight:700;letter-spacing:-0.04em;line-height:1;white-space:nowrap;color:#0E1110">Warmer homes</span><span style="width:clamp(14px,1.4vw,22px);height:clamp(14px,1.4vw,22px);border-radius:50%;background:#0E1110;flex:none"></span><span style="font-size:clamp(44px,7vw,112px);font-weight:700;letter-spacing:-0.04em;line-height:1;white-space:nowrap;color:#0E1110">Lower bills</span><span style="width:clamp(14px,1.4vw,22px);height:clamp(14px,1.4vw,22px);border-radius:50%;background:#0E1110;flex:none"></span><span style="font-size:clamp(44px,7vw,112px);font-weight:700;letter-spacing:-0.04em;line-height:1;white-space:nowrap;color:#0E1110">A secure tomorrow</span><span style="width:clamp(14px,1.4vw,22px);height:clamp(14px,1.4vw,22px);border-radius:50%;background:#0E1110;flex:none"></span></div></div>
+</div>
+
+<section id="process" aria-labelledby="proc-h" data-screen-label="Process" style="background:#0E1110;color:#FFFFFF;padding:clamp(72px,8vw,120px) clamp(16px,3.75vw,54px)">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px clamp(32px,5vw,80px);margin-bottom:56px;align-items:end">
+    <div style="display:grid;gap:16px"><p data-m="reveal" style="margin:0;font-size:24px;font-weight:700;letter-spacing:-0.02em;color:#CBF24C">How it works</p><h2 id="proc-h" data-m="reveal" style="margin:0;font-size:clamp(36px,4.2vw,62px);font-weight:700;line-height:1.02;letter-spacing:-0.04em">Start to switch-on, in four steps.</h2></div>
+    <p data-m="reveal" style="margin:0;max-width:520px;font-size:18px;font-weight:500;line-height:1.55;color:#B9BFB6">No hard sell and no guesswork. You get a design and a price you can check before anything is ordered.</p>
+  </div>
+  <ol style="list-style:none;margin:0;padding:0;display:grid;gap:10px">
+    <sc-for list="{{ steps }}" as="s" hint-placeholder-count="4">
+      <li data-m="reveal" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px clamp(24px,4vw,64px);align-items:center;padding:10px;background:#141816">
+        <div style="position:relative;aspect-ratio:16/10;overflow:hidden"><img src="{{ s.img }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+        <div style="display:grid;gap:16px;padding:clamp(8px,2vw,24px)">
+          <span style="font-size:15px;font-weight:700;color:#CBF24C">Step {{ s.num }}</span>
+          <h3 style="margin:0;font-size:clamp(28px,2.6vw,40px);font-weight:700;letter-spacing:-0.03em">{{ s.title }}</h3>
+          <p style="margin:0;font-size:17px;font-weight:500;line-height:1.55;color:#B9BFB6;max-width:520px">{{ s.body }}</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ s.tags }}" as="t" hint-placeholder-count="2"><span style="padding:6px 12px;border-radius:50px;border:1px solid #363C38;font-size:13px;font-weight:700">{{ t.t }}</span></sc-for></div>
+        </div>
+      </li>
+    </sc-for>
+  </ol>
+</section>
+
+<section aria-labelledby="off-h" data-screen-label="Offices" style="padding:clamp(72px,8vw,120px) clamp(16px,3.75vw,54px)">
+  <h2 id="off-h" data-m="reveal" style="margin:0 0 40px;font-size:clamp(34px,3.6vw,52px);font-weight:700;line-height:1.1;letter-spacing:-0.03em">Where to <span style="color:#A8CC2A">find us</span></h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:10px">
+    <div data-m="reveal" style="position:relative;min-height:320px;overflow:hidden"><img src="./img/lib/60.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+    <address data-m="reveal" style="display:grid;gap:16px;align-content:space-between;padding:32px;background:#FFFFFF;font-style:normal"><span style="justify-self:start;padding:7px 14px;border-radius:50px;background:#CBF24C;font-size:13px;font-weight:700">Head office</span><div style="display:grid;gap:8px"><strong style="font-size:28px;letter-spacing:-0.02em">Fife</strong><span style="font-size:17px;font-weight:500;line-height:1.55">Suite 2, Abtel Building<br>Pitreavie Business Park<br>Pitreavie Drive<br>Dunfermline, KY11 8US</span></div></address>
+    <address data-m="reveal" style="display:grid;gap:16px;align-content:space-between;padding:32px;background:#FFFFFF;font-style:normal"><span style="justify-self:start;padding:7px 14px;border-radius:50px;border:1px solid #0E1110;font-size:13px;font-weight:700">Office</span><div style="display:grid;gap:8px"><strong style="font-size:28px;letter-spacing:-0.02em">York</strong><span style="font-size:17px;font-weight:500;line-height:1.55">Tower Court Business Centre<br>Oakdale Road<br>Clifton Moor<br>York, YO30 4XL</span></div></address>
+  </div>
+</section>
+
+<section aria-labelledby="cta-h" data-screen-label="CTA" style="margin:0 10px 10px;padding:clamp(48px,6vw,88px) clamp(20px,3.5vw,54px);background:#CBF24C;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:32px">
+  <h2 id="cta-h" data-m="reveal" style="margin:0;max-width:760px;font-size:clamp(36px,4.4vw,64px);font-weight:700;line-height:1;letter-spacing:-0.04em">Talk to the people who’ll do the work.</h2>
+  <a data-m="reveal" href="Contact.dc.html" style="display:flex;align-items:center;gap:14px;height:56px;padding:4px 4px 4px 26px;border-radius:300px;background:#0E1110;color:#FFFFFF;font-size:16px;font-weight:700" style-hover="background:#1B201E">Get in touch<span aria-hidden="true" style="width:48px;height:48px;border-radius:300px;background:#FFFFFF;color:#0E1110;display:grid;place-items:center">→</span></a>
+</section>
+</main>
+
+<dc-import name="SiteFooter" hint-size="100%,560px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() { this.initMotion(); }
+  componentWillUnmount() { clearTimeout(this.mt); }
+  initMotion() {
+    const M = window.Motion;
+    if (!M) { this.mt = setTimeout(() => this.initMotion(), 120); return; }
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    requestAnimationFrame(() => {
+      const { animate, inView, scroll, stagger } = M; const ease = [0.22, 1, 0.36, 1];
+      const q = (s) => Array.from(document.querySelectorAll(s));
+      animate(q('[data-m="hero"]'), { opacity: [0, 1], transform: ['translateY(40px)', 'translateY(0px)'] }, { duration: 1.1, delay: stagger(0.08, { startDelay: 0.1 }), ease });
+      q('[data-m="hero-panel"]').forEach(el => animate(el, { clipPath: ['inset(100% 0% 0% 0%)', 'inset(0% 0% 0% 0%)'] }, { duration: 1.4, ease }));
+      q('[data-m="reveal"]').forEach(el => { el.style.opacity = '0'; inView(el, () => { animate(el, { opacity: [0, 1], transform: ['translateY(48px)', 'translateY(0px)'] }, { duration: 1, ease }); }, { amount: 0.15 }); });
+      q('[data-m="parallax"]').forEach(el => scroll(animate(el, { transform: ['translateY(-5%)', 'translateY(5%)'] }, { ease: 'linear' }), { target: el.parentElement, offset: ['start end', 'end start'] }));
+    });
+  }
+  renderVals() {
+    return {
+      steps: [
+        ['Book a consultation', 'Tell us about your property, energy use and priorities. We answer your questions and establish the right starting point, with no obligation.', './img/lib/1.jpg', ['No obligation', 'Property survey']],
+        ['Bespoke system design', 'Our specialists turn the survey into a considered design, balancing performance, aesthetics and budget around your long-term goals.', './img/lib/29.jpg', ['Performance modelled', 'Costed clearly']],
+        ['Professional installation', 'Our accredited team manages installation safely and efficiently, with careful workmanship and minimal disruption to your day.', './img/lib/14.jpg', ['MCS accredited', 'Minimal disruption']],
+        ['Energy independence', 'Once your system is live we help you understand its performance, and stay available for monitoring, maintenance and aftercare.', './img/lib/55.jpg', ['Ongoing aftercare', 'Performance monitoring']]
+      ].map(([title, body, img, tags], i) => ({ num: '0' + (i + 1), title, body, img, tags: tags.map(t => ({ t })) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

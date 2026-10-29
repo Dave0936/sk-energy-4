@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>{{ docTitle }}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&amp;display=swap">
+<script src="./site-data.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/motion@11.11.13/dist/motion.js"></script>
+<script src="./site-motion.js"></script>
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#F1F1EF;color:#0E1110;font-family:'Satoshi','Helvetica Neue',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:inherit;text-decoration:none}
+a:hover{color:inherit}
+:focus-visible{outline:2px solid #CBF24C;outline-offset:3px}
+::selection{background:#CBF24C;color:#0E1110}
+</style>
+</helmet>
+
+<dc-import name="SiteNav" active="news" hint-size="100%,84px"></dc-import>
+
+<main id="main">
+<article>
+<header data-screen-label="Article header" style="padding:140px clamp(16px,3.75vw,54px) 40px;display:grid;justify-items:center;text-align:center;gap:24px">
+  <nav aria-label="Breadcrumb" data-m="hero" style="display:flex;gap:10px;font-size:14px;font-weight:700;color:#6C7566"><a href="News.dc.html" style-hover="color:#0E1110">News</a><span aria-hidden="true">/</span><span style="color:#0E1110">{{ a.cat }}</span></nav>
+  <h1 data-m="hero" style="margin:0;max-width:1100px;font-size:clamp(42px,5.6vw,88px);font-weight:700;line-height:.98;letter-spacing:-0.045em;text-wrap:balance">{{ a.title }}</h1>
+  <p data-m="hero" style="margin:0;max-width:720px;font-size:clamp(19px,1.6vw,23px);font-weight:500;line-height:1.45;color:#3A403B">{{ a.excerpt }}</p>
+  <div data-m="hero" style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px">
+    <span style="padding:7px 14px;border-radius:50px;background:#CBF24C;font-size:13px;font-weight:700">{{ a.cat }}</span>
+    <span style="padding:7px 14px;border-radius:50px;border:1px solid #D3D6D0;font-size:13px;font-weight:700">{{ a.date }}</span>
+    <span style="padding:7px 14px;border-radius:50px;border:1px solid #D3D6D0;font-size:13px;font-weight:700">{{ a.read }}</span>
+  </div>
+</header>
+
+<div data-m="hero-panel" style="position:relative;margin:0 10px;height:clamp(360px,50vw,720px);overflow:hidden;background:#E8E8E5">
+  <img src="{{ a.img }}" alt="" data-m="parallax" style="position:absolute;inset:-6% 0;width:100%;height:112%;object-fit:cover;display:block">
+</div>
+
+<div data-screen-label="Article body" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:48px clamp(32px,5vw,80px);padding:clamp(56px,6vw,96px) clamp(16px,3.75vw,54px)">
+  <aside style="display:grid;gap:20px;align-content:start">
+    <div style="display:grid;gap:6px;padding-top:16px;border-top:2px solid #0E1110"><span style="font-size:13px;font-weight:700;color:#6C7566">Written by</span><span style="font-size:16px;font-weight:700">The SK Energy team</span></div>
+    <div style="display:grid;gap:10px;padding-top:16px;border-top:1px solid #D3D6D0">
+      <span style="font-size:13px;font-weight:700;color:#6C7566">Share</span>
+      <div style="display:flex;gap:8px">
+        <a href="{{ shareMail }}" style="height:40px;padding:0 16px;display:grid;place-items:center;border-radius:300px;border:1px solid #0E1110;font-size:13px;font-weight:700" style-hover="background:#0E1110;color:#FFFFFF">Email</a>
+        <a href="{{ shareLinkedIn }}" target="_blank" rel="noopener" style="height:40px;padding:0 16px;display:grid;place-items:center;border-radius:300px;border:1px solid #0E1110;font-size:13px;font-weight:700" style-hover="background:#0E1110;color:#FFFFFF">LinkedIn</a>
+      </div>
+    </div>
+  </aside>
+  <div data-m="body" style="grid-column:span 2;max-width:720px;display:grid;gap:24px">
+    <sc-for list="{{ blocks }}" as="b" hint-placeholder-count="6">
+      <sc-if value="{{ b.isP }}" hint-placeholder-val="{{ true }}"><p style="margin:0;font-size:clamp(18px,1.35vw,20px);font-weight:500;line-height:1.65;color:#1B201E;text-wrap:pretty">{{ b.text }}</p></sc-if>
+      <sc-if value="{{ b.isH }}" hint-placeholder-val="{{ false }}"><h2 style="margin:24px 0 0;font-size:clamp(26px,2.4vw,34px);font-weight:700;line-height:1.15;letter-spacing:-0.03em">{{ b.text }}</h2></sc-if>
+      <sc-if value="{{ b.isQ }}" hint-placeholder-val="{{ false }}"><blockquote style="margin:16px 0;padding:28px 32px;background:#CBF24C;font-size:clamp(24px,2.2vw,32px);font-weight:700;line-height:1.2;letter-spacing:-0.025em">{{ b.text }}</blockquote></sc-if>
+      <sc-if value="{{ b.isL }}" hint-placeholder-val="{{ false }}"><ul style="margin:0;padding:0;list-style:none;display:grid;border-top:1px solid #D3D6D0"><sc-for list="{{ b.items }}" as="li" hint-placeholder-count="4"><li style="display:flex;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid #D3D6D0;font-size:18px;font-weight:700"><span aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:#CBF24C;box-shadow:0 0 0 1px #0E1110;flex:none"></span>{{ li.t }}</li></sc-for></ul></sc-if>
+    </sc-for>
+  </div>
+</div>
+</article>
+
+<section aria-labelledby="rel-h" data-screen-label="Related" style="padding:0 clamp(16px,3.75vw,54px) clamp(72px,8vw,120px)">
+  <div style="display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:16px;margin-bottom:32px;padding-top:48px;border-top:1px solid #D3D6D0">
+    <h2 id="rel-h" style="margin:0;font-size:clamp(30px,3vw,44px);font-weight:700;letter-spacing:-0.03em">Keep reading</h2>
+    <a href="News.dc.html" style="font-size:15px;font-weight:700;border-bottom:1.5px solid #CBF24C;padding-bottom:2px">All articles →</a>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:40px 26px">
+    <sc-for list="{{ related }}" as="n" hint-placeholder-count="3">
+      <a href="{{ n.href }}" data-m="reveal" style="display:grid;gap:14px;align-content:start" style-hover="color:#0E1110">
+        <div style="position:relative;aspect-ratio:4/3;overflow:hidden;background:#E8E8E5"><img src="{{ n.img }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .9s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.05)"><span style="position:absolute;top:14px;left:14px;padding:6px 12px;border-radius:50px;background:#CBF24C;font-size:12px;font-weight:700">{{ n.cat }}</span></div>
+        <span style="font-size:13px;font-weight:700;color:#6C7566">{{ n.date }} · {{ n.read }}</span>
+        <h3 style="margin:0;font-size:22px;font-weight:700;line-height:1.2;letter-spacing:-0.02em">{{ n.title }}</h3>
+      </a>
+    </sc-for>
+  </div>
+</section>
+
+<section aria-labelledby="cta-h" data-screen-label="CTA" style="margin:0 10px 10px;padding:clamp(48px,6vw,88px) clamp(20px,3.5vw,54px);background:#CBF24C;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:32px">
+  <h2 id="cta-h" data-m="reveal" style="margin:0;max-width:760px;font-size:clamp(36px,4.4vw,64px);font-weight:700;line-height:1;letter-spacing:-0.04em">Want a straight answer for your property?</h2>
+  <a data-m="reveal" href="Contact.dc.html" style="display:flex;align-items:center;gap:14px;height:56px;padding:4px 4px 4px 26px;border-radius:300px;background:#0E1110;color:#FFFFFF;font-size:16px;font-weight:700" style-hover="background:#1B201E">Book a free consultation<span aria-hidden="true" style="width:48px;height:48px;border-radius:300px;background:#FFFFFF;color:#0E1110;display:grid;place-items:center">→</span></a>
+</section>
+</main>
+
+<dc-import name="SiteFooter" hint-size="100%,560px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;slug&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;heat-pump-running-costs-fife-winter&quot;,&quot;home-energy-scotland-grant-loan&quot;,&quot;ev-charging-off-peak-tariff&quot;,&quot;solar-on-a-scottish-roof&quot;,&quot;battery-who-benefits&quot;,&quot;two-engineers-join&quot;,&quot;new-build-standard-specification&quot;],&quot;default&quot;:&quot;heat-pump-running-costs-fife-winter&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { ready: !!window.SK, p: 0 };
+  componentDidMount() {
+    if (!window.SK) { this.onReady = () => this.setState({ ready: true }); window.addEventListener('sk-ready', this.onReady); }
+    this.onScroll = () => { const el = document.querySelector('[data-m="body"]'); if (!el) return; const r = el.getBoundingClientRect(); const p = Math.min(1, Math.max(0, (window.innerHeight * 0.5 - r.top) / Math.max(1, r.height))); if (Math.abs(p - this.state.p) > 0.005) this.setState({ p }); };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.initMotion();
+  }
+  componentWillUnmount() { this.onReady && window.removeEventListener('sk-ready', this.onReady); window.removeEventListener('scroll', this.onScroll); clearTimeout(this.mt); }
+  initMotion() {
+    const M = window.Motion;
+    if (!M || !window.SK) { this.mt = setTimeout(() => this.initMotion(), 120); return; }
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    requestAnimationFrame(() => {
+      const { animate, inView, scroll, stagger } = M; const ease = [0.22, 1, 0.36, 1];
+      const q = (s) => Array.from(document.querySelectorAll(s));
+      animate(q('[data-m="hero"]'), { opacity: [0, 1], transform: ['translateY(40px)', 'translateY(0px)'] }, { duration: 1.1, delay: stagger(0.08, { startDelay: 0.1 }), ease });
+      q('[data-m="hero-panel"]').forEach(el => animate(el, { clipPath: ['inset(100% 0% 0% 0%)', 'inset(0% 0% 0% 0%)'] }, { duration: 1.4, delay: 0.2, ease }));
+      q('[data-m="reveal"]').forEach(el => { el.style.opacity = '0'; inView(el, () => { animate(el, { opacity: [0, 1], transform: ['translateY(48px)', 'translateY(0px)'] }, { duration: 1, ease }); }, { amount: 0.15 }); });
+      q('[data-m="parallax"]').forEach(el => scroll(animate(el, { transform: ['translateY(-5%)', 'translateY(5%)'] }, { ease: 'linear' }), { target: el.parentElement, offset: ['start end', 'end start'] }));
+    });
+  }
+  renderVals() {
+    const SK = window.SK;
+    const progress = Math.round(this.state.p * 1000) / 10 + '%';
+    if (!SK) return { a: {}, blocks: [], related: [], docTitle: 'SK Energy', progress };
+    const slug = SK.slug() || this.props.slug || SK.NEWS[0].slug;
+    const a = SK.NEWS.find(n => n.slug === slug) || SK.NEWS[0];
+    const url = encodeURIComponent(location.href);
+    const related = SK.NEWS.filter(n => n.slug !== a.slug).sort((x, y) => (y.cat === a.cat) - (x.cat === a.cat)).slice(0, 3);
+    return {
+      docTitle: a.title + ' — SK Energy', a, progress,
+      shareMail: 'mailto:?subject=' + encodeURIComponent(a.title) + '&body=' + url,
+      shareLinkedIn: 'https://www.linkedin.com/sharing/share-offsite/?url=' + url,
+      blocks: SK.ARTICLE_BODY.map(([t, v]) => ({ isP: t === 'p', isH: t === 'h', isQ: t === 'q', isL: t === 'l', text: t === 'l' ? '' : v, items: t === 'l' ? v.map(x => ({ t: x })) : [] })),
+      related: related.map(n => ({ ...n, href: SK.page.article(n.slug) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

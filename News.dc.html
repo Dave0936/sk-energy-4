@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>News &amp; insights — SK Energy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&amp;display=swap">
+<script src="./site-data.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/motion@11.11.13/dist/motion.js"></script>
+<script src="./site-motion.js"></script>
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#F1F1EF;color:#0E1110;font-family:'Satoshi','Helvetica Neue',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:inherit;text-decoration:none}
+a:hover{color:inherit}
+button{font-family:inherit}
+:focus-visible{outline:2px solid #CBF24C;outline-offset:3px}
+::selection{background:#CBF24C;color:#0E1110}
+</style>
+</helmet>
+
+<dc-import name="SiteNav" active="news" hint-size="100%,84px"></dc-import>
+
+<main id="main">
+<section data-screen-label="News hero" style="padding:150px clamp(16px,3.75vw,54px) 48px;display:grid;gap:20px">
+  <p data-m="hero" style="margin:0;font-size:24px;font-weight:700;letter-spacing:-0.02em">News &amp; insights</p>
+  <h1 data-m="hero" style="margin:0;max-width:1000px;font-size:clamp(52px,7vw,108px);font-weight:700;line-height:.94;letter-spacing:-0.05em">Clear thinking on <span style="color:#A8CC2A">home energy.</span></h1>
+</section>
+
+<section aria-label="Featured article" data-screen-label="Featured" style="padding:0 10px">
+  <a href="{{ featured.href }}" data-m="hero" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:10px;background:#FFFFFF" style-hover="color:#0E1110">
+    <div style="position:relative;min-height:clamp(320px,36vw,560px);overflow:hidden;background:#E8E8E5"><img src="{{ featured.img }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.04)"></div>
+    <div style="display:grid;gap:20px;align-content:space-between;padding:clamp(28px,3.5vw,56px)">
+      <div style="display:flex;flex-wrap:wrap;gap:8px"><span style="padding:7px 14px;border-radius:50px;background:#0E1110;color:#CBF24C;font-size:13px;font-weight:700">Latest</span><span style="padding:7px 14px;border-radius:50px;background:#CBF24C;font-size:13px;font-weight:700">{{ featured.cat }}</span></div>
+      <div style="display:grid;gap:16px">
+        <h2 style="margin:0;font-size:clamp(32px,3.4vw,52px);font-weight:700;line-height:1.04;letter-spacing:-0.035em;text-wrap:balance">{{ featured.title }}</h2>
+        <p style="margin:0;font-size:18px;font-weight:500;line-height:1.5;color:#3A403B">{{ featured.excerpt }}</p>
+      </div>
+      <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:14px;font-weight:700"><span style="color:#6C7566">{{ featured.date }} · {{ featured.read }}</span><span style="border-bottom:1.5px solid #CBF24C">Read article →</span></div>
+    </div>
+  </a>
+</section>
+
+<section aria-labelledby="all-h" data-screen-label="All articles" style="padding:clamp(56px,6vw,96px) clamp(16px,3.75vw,54px) clamp(72px,8vw,120px)">
+  <h2 id="all-h" style="position:absolute;left:-9999px">All articles</h2>
+  <div role="tablist" aria-label="Article categories" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid #D3D6D0">
+    <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="6">
+      <button type="button" role="tab" aria-selected="{{ t.selected }}" onClick="{{ t.pick }}" style="display:flex;align-items:center;gap:8px;height:42px;padding:0 18px;border-radius:300px;border:1px solid {{ t.border }};background:{{ t.bg }};color:{{ t.fg }};font-size:14px;font-weight:700;cursor:pointer;transition:background .25s,color .25s">{{ t.label }}<span style="font-size:12px;opacity:.6">{{ t.count }}</span></button>
+    </sc-for>
+  </div>
+  <div data-m="grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:48px 26px">
+    <sc-for list="{{ items }}" as="n" hint-placeholder-count="6">
+      <a href="{{ n.href }}" style="display:grid;gap:16px;align-content:start" style-hover="color:#0E1110">
+        <div style="position:relative;aspect-ratio:4/3;overflow:hidden;background:#E8E8E5">
+          <img src="{{ n.img }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .9s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.05)">
+          <span style="position:absolute;top:14px;left:14px;padding:6px 12px;border-radius:50px;background:#CBF24C;font-size:12px;font-weight:700">{{ n.cat }}</span>
+        </div>
+        <div style="display:flex;gap:14px;font-size:13px;font-weight:700;color:#6C7566"><span>{{ n.date }}</span><span>{{ n.read }}</span></div>
+        <h3 style="margin:0;font-size:22px;font-weight:700;line-height:1.2;letter-spacing:-0.02em;text-wrap:pretty">{{ n.title }}</h3>
+        <p style="margin:0;font-size:15px;font-weight:500;line-height:1.5;color:#3A403B">{{ n.excerpt }}</p>
+      </a>
+    </sc-for>
+  </div>
+</section>
+
+<section aria-labelledby="sub-h" data-screen-label="Newsletter" style="margin:0 10px 10px;padding:clamp(48px,6vw,88px) clamp(20px,3.5vw,54px);background:#0E1110;color:#FFFFFF;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:32px;align-items:end">
+  <h2 id="sub-h" data-m="reveal" style="margin:0;font-size:clamp(34px,3.8vw,56px);font-weight:700;line-height:1.02;letter-spacing:-0.04em">Useful, occasional, <span style="color:#CBF24C">never salesy.</span></h2>
+  <form data-m="reveal" onSubmit="{{ subscribe }}" style="display:grid;gap:10px">
+    <label for="sub-email" style="font-size:14px;font-weight:700;color:#B9BFB6">Get new articles by email</label>
+    <div style="display:flex;flex-wrap:wrap;gap:8px">
+      <input id="sub-email" type="email" required="" placeholder="you@example.com" value="{{ email }}" onChange="{{ setEmail }}" style="flex:1 1 220px;height:56px;padding:0 20px;border-radius:300px;border:1px solid #363C38;background:#1B201E;color:#FFFFFF;font-size:16px;font-family:inherit">
+      <button type="submit" style="height:56px;padding:0 26px;border-radius:300px;border:0;background:#CBF24C;color:#0E1110;font-size:15px;font-weight:700;cursor:pointer">Subscribe</button>
+    </div>
+    <p aria-live="polite" style="margin:0;min-height:20px;font-size:14px;font-weight:500;color:#CBF24C">{{ subMsg }}</p>
+  </form>
+</section>
+</main>
+
+<dc-import name="SiteFooter" hint-size="100%,560px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { ready: !!window.SK, tab: 'All', email: '', subMsg: '' };
+  componentDidMount() {
+    if (!window.SK) { this.onReady = () => this.setState({ ready: true }); window.addEventListener('sk-ready', this.onReady); }
+    this.initMotion();
+  }
+  componentWillUnmount() { this.onReady && window.removeEventListener('sk-ready', this.onReady); clearTimeout(this.mt); }
+  componentDidUpdate(pp, ps) {
+    const M = window.Motion;
+    if (M && ps.tab !== this.state.tab && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) requestAnimationFrame(() => M.animate(document.querySelectorAll('[data-m="grid"] > a'), { opacity: [0, 1], transform: ['translateY(24px)', 'translateY(0px)'] }, { duration: 0.7, delay: M.stagger(0.05), ease: [0.22, 1, 0.36, 1] }));
+  }
+  initMotion() {
+    const M = window.Motion;
+    if (!M) { this.mt = setTimeout(() => this.initMotion(), 120); return; }
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    requestAnimationFrame(() => {
+      const { animate, inView, stagger } = M; const ease = [0.22, 1, 0.36, 1];
+      const q = (s) => Array.from(document.querySelectorAll(s));
+      animate(q('[data-m="hero"]'), { opacity: [0, 1], transform: ['translateY(40px)', 'translateY(0px)'] }, { duration: 1.1, delay: stagger(0.08, { startDelay: 0.1 }), ease });
+      q('[data-m="reveal"]').forEach(el => { el.style.opacity = '0'; inView(el, () => { animate(el, { opacity: [0, 1], transform: ['translateY(48px)', 'translateY(0px)'] }, { duration: 1, ease }); }, { amount: 0.15 }); });
+    });
+  }
+  renderVals() {
+    const SK = window.SK, st = this.state;
+    const all = SK ? SK.NEWS : [];
+    const [f, ...rest] = all;
+    const cats = ['All', ...Array.from(new Set(rest.map(n => n.cat)))];
+    return {
+      featured: f ? { ...f, href: SK.page.article(f.slug) } : {},
+      tabs: cats.map(c => { const on = st.tab === c; return { label: c, count: c === 'All' ? rest.length : rest.filter(n => n.cat === c).length, selected: on ? 'true' : 'false', bg: on ? '#0E1110' : 'transparent', fg: on ? '#CBF24C' : '#0E1110', border: on ? '#0E1110' : '#D3D6D0', pick: () => this.setState({ tab: c }) }; }),
+      items: rest.filter(n => st.tab === 'All' || n.cat === st.tab).map(n => ({ ...n, href: SK.page.article(n.slug) })),
+      email: st.email, subMsg: st.subMsg,
+      setEmail: (e) => this.setState({ email: e.target.value, subMsg: '' }),
+      subscribe: (e) => { e.preventDefault(); this.setState({ subMsg: 'Sign-up isn’t connected yet — this is a design preview.' }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

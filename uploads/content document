@@ -1,0 +1,153 @@
+Homepage Structure
+Design and implement the homepage with the following sections. You may refine the order if it improves the user journey.
+Section A: Navigation
+Create a polished, responsive navigation bar featuring:
+	•	SK Energy logo. 
+	•	Services dropdown. 
+	•	How It Works. 
+	•	Our Work. 
+	•	About. 
+	•	News or Insights. 
+	•	A prominent primary CTA: "Get a Free Consultation" or an equally effective alternative. 
+The navigation should feel lightweight and premium.
+Make the header sticky if it improves usability. Ensure dropdowns work on desktop and mobile, have accessible focus states, and do not obstruct content.
+Section B: Hero — The Most Important Section
+The first screen must immediately communicate what SK Energy does, who it serves, and why visitors should trust it.
+Create a compelling hero with a strong headline, supporting copy, primary and secondary CTAs, and high-quality imagery or a carefully composed image layout.
+Explore messaging in this direction:
+Headline: "Your energy. Better designed."
+Supporting copy: "Solar, battery storage, low-carbon heating and EV charging, designed around your property and installed by one experienced team across central Scotland."
+Primary CTA: "Plan Your Energy System"
+Secondary CTA: "Explore Our Work"
+Include a concise trust indicator beneath the CTAs, using verified credentials or business information already present in the project.
+The hero must feel visually memorable, calm, confident, and premium.
+Do not overload it with multiple competing messages, excessive badges, or unnecessary animations.
+The first viewport should establish a clear hierarchy: headline, supporting copy, primary CTA, and visual proof.
+Section C: Trust and Credibility
+Create a restrained trust section using verified credentials, certifications, customer feedback, and business statistics where available.
+Potential proof points from the existing website include:
+	•	More than 12 years of experience. 
+	•	Over 1,400 systems commissioned. 
+	•	Five integrated renewable energy service categories. 
+	•	MCS certification and other relevant accreditations. 
+Audit all claims before using them. Do not invent certifications, statistics, awards, or customer ratings. Do not imply that an accreditation covers services beyond its actual scope.
+Use clean typography and a subtle layout instead of a cluttered strip of logos.
+Section D: Introduction to SK Energy
+Introduce the company and explain its approach.
+Suggested heading: "Good energy starts with a better plan."
+Suggested supporting message: "Every property is different. We assess how you use energy, what your building needs, and what you want to achieve before recommending a system."
+Highlight the company's integrated approach:
+	•	One team from survey through installation. 
+	•	Solutions designed around actual requirements. 
+	•	Clear specifications and costs. 
+	•	Long-term maintenance and aftercare. 
+Use a strong editorial image alongside concise, benefit-focused copy.
+Section E: Services
+Create a visually engaging services section that makes it easy for different visitors to find the right solution.
+Include five main service categories:
+	1.	Residential Solar & Battery Storage Generate electricity, store surplus energy, and make better use of the power your home produces. 
+	2.	Air Source Heat Pumps Improve home heating with a properly designed low-carbon system tailored to the property. 
+	3.	EV Charging Install smart home, workplace, and fleet charging solutions. 
+	4.	Commercial Energy Solutions Help businesses and commercial property owners explore solar, storage, and charging systems designed around site requirements. 
+	5.	New-Build Energy Systems Coordinate renewable technologies with developers, construction teams, and build programmes. 
+Use a considered card grid or editorial layout with strong imagery, clear titles, short descriptions, and meaningful links.
+Each card should have a subtle hover treatment and a clear visual relationship to its corresponding service.
+Do not make every card look identical if a more varied layout improves the design.
+Section F: How It Works
+Explain the customer journey in four simple stages:
+01 — Initial Consultation Understand the property, energy usage, priorities, and budget.
+02 — Survey and System Design Assess the building and develop a technically appropriate solution with transparent costs.
+03 — Professional Installation Coordinate and complete the installation with attention to safety, quality, and disruption.
+04 — Monitoring and Aftercare Help the customer understand system performance and access ongoing support.
+Present these stages in an elegant horizontal timeline on desktop and a clean vertical sequence on mobile.
+Reassure customers that recommendations should be based on suitability and evidence, not aggressive sales tactics.
+Section G: Featured Projects and Case Studies
+Create a portfolio section that demonstrates the quality and range of SK Energy's work.
+Use existing case studies where their details can be verified, including examples of residential retrofits, commercial installations, and new-build projects.
+Each project should include:
+	•	A strong project photograph. 
+	•	Project type and location. 
+	•	The customer's challenge. 
+	•	The solution installed. 
+	•	Verified performance or financial results, where available. 
+	•	A link to read the full case study. 
+Use large imagery, thoughtful typography, and an editorial composition.
+Avoid fabricated project photography, savings figures, payback periods, or testimonials. Clearly distinguish illustrative estimates from measured results.
+Section H: Why Choose SK Energy?
+Build a differentiated section that explains why customers should choose SK Energy over a conventional installer.
+Focus on:
+	•	Integrated expertise across multiple technologies. 
+	•	Honest, property-specific recommendations. 
+	•	Transparent system design and costs. 
+	•	Professional installation. 
+	•	Local knowledge across central Scotland. 
+	•	Continued support after installation. 
+Use concise, credible messaging and supporting visual elements.
+Avoid empty phrases such as "industry-leading solutions" unless supported by real evidence.
+Section I: Customer Testimonials
+Display genuine customer testimonials from verified existing sources, if available.
+Include the customer's name or approved attribution, the type of installation, and the relevant feedback.
+Use an elegant editorial testimonial layout, not an oversized generic carousel by default.
+If there is insufficient verified testimonial content, build a reusable section that can be populated later rather than inventing customer quotations.
+Section J: Commercial and New-Build Callout
+Create a dedicated section for business owners, commercial property operators, and property developers.
+Suggested heading: "Building for the future? Get energy designed in from the start."
+Explain how SK Energy can coordinate solar, battery storage, heat pumps, and EV charging with commercial requirements and construction schedules.
+Include a clear CTA: "Discuss Your Project"
+This section should look visually distinct from the residential sections while remaining consistent with the brand.
+Section K: Frequently Asked Questions
+Create a concise, accessible FAQ accordion that addresses genuine customer concerns, such as:
+	•	Which renewable energy system is right for my property? 
+	•	Can solar panels work with battery storage? 
+	•	How does an air source heat pump installation work? 
+	•	Do you install EV chargers for homes and businesses? 
+	•	What affects the cost of an installation? 
+	•	Which areas do you cover? 
+	•	What support is available after installation? 
+Answers should be useful, accurate, and based on verified company information. Avoid guaranteeing savings, suitability, installation timelines, or grant eligibility.
+Ensure accordion controls work with a keyboard and communicate their expanded state to assistive technology.
+Section L: Conversion-Focused Contact Section
+Create a strong final CTA section that encourages visitors to take the next step.
+Suggested heading: "Let's work out what makes sense for your property."
+Supporting copy: "Tell us a little about your project. We'll help you understand the options worth exploring."
+Include a simple, attractive enquiry form with relevant fields:
+	•	Name. 
+	•	Email address. 
+	•	Phone number, optional where appropriate. 
+	•	Postcode. 
+	•	Customer type: Homeowner, Business, or Developer. 
+	•	Service of interest. 
+	•	Optional project details. 
+CTA: "Request a Consultation"
+Provide the verified company email as an alternative contact method.
+Form requirements:
+	•	Client-side and server-side validation where the existing backend supports it. 
+	•	Clear labels and accessible error messages. 
+	•	Loading, success, and failure states. 
+	•	Spam protection where appropriate. 
+	•	Appropriate consent and privacy wording. 
+	•	No fake success messages or non-functional submission buttons. 
+If no backend or submission integration exists, implement a clearly documented integration point and explain what is required to make submissions operational. Never claim enquiries have been sent when they have not.
+Section M: Footer
+Create a polished footer containing:
+	•	Logo and concise brand statement. 
+	•	Service links. 
+	•	Company navigation. 
+	•	Contact details. 
+	•	Verified business address. 
+	•	Relevant certifications, where appropriate. 
+	•	Privacy policy and terms links. 
+	•	Copyright notice. 
+Ensure every link points to a real, appropriate destination.
+5. Copywriting and Conversion Strategy
+Write polished, original website copy throughout the homepage.
+The messaging should be:
+	•	Clear rather than overly technical. 
+	•	Benefit-led without making unrealistic promises. 
+	•	Specific rather than generic. 
+	•	Trustworthy rather than aggressively sales-driven. 
+	•	Appropriate for both residential and commercial audiences. 
+Emphasise customer outcomes such as comfort, informed investment decisions, efficient energy use, better visibility of energy consumption, and a well-integrated system.
+Use strong headlines, concise supporting paragraphs, clear CTAs, and scannable sections.
+Do not promise guaranteed savings, energy independence, fixed payback periods, or specific environmental outcomes without supporting evidence.
+Use British English spelling and terminology throughout.

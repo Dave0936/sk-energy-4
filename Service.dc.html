@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>{{ docTitle }}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&amp;display=swap">
+<script src="./site-data.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/motion@11.11.13/dist/motion.js"></script>
+<script src="./site-motion.js"></script>
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#F1F1EF;color:#0E1110;font-family:'Satoshi','Helvetica Neue',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:inherit;text-decoration:none}
+a:hover{color:inherit}
+button{font-family:inherit}
+:focus-visible{outline:2px solid #CBF24C;outline-offset:3px}
+::selection{background:#CBF24C;color:#0E1110}
+</style>
+</helmet>
+
+<dc-import name="SiteNav" active="services" hint-size="100%,84px"></dc-import>
+
+<main id="main">
+<section data-screen-label="Service hero" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:10px;padding:10px;min-height:min(100vh,940px)">
+  <div style="display:flex;flex-direction:column;justify-content:space-between;gap:48px;padding:118px clamp(6px,1.6vw,22px) 24px">
+    <div style="display:grid;gap:28px">
+      <nav aria-label="Breadcrumb" data-m="hero" style="display:flex;gap:10px;font-size:14px;font-weight:700;color:#6C7566"><a href="SK Energy Homepage.dc.html" style-hover="color:#0E1110">Home</a><span aria-hidden="true">/</span><span>Services</span><span aria-hidden="true">/</span><span style="color:#0E1110">{{ svc.title }}</span></nav>
+      <span data-m="hero" style="justify-self:start;padding:8px 16px;border-radius:50px;background:#0E1110;color:#CBF24C;font-size:15px;font-weight:700">{{ svc.tag }}</span>
+      <h1 data-m="hero" style="margin:0;font-size:clamp(52px,7.4vw,112px);font-weight:700;line-height:.94;letter-spacing:-0.05em;text-wrap:balance">{{ svc.title }}<span style="color:#A8CC2A">.</span></h1>
+      <p data-m="hero" style="margin:0;max-width:540px;font-size:clamp(20px,1.7vw,24px);font-weight:500;line-height:1.4;letter-spacing:-0.01em;text-wrap:pretty">{{ svc.lead }}</p>
+    </div>
+    <div data-m="hero" style="display:flex;flex-wrap:wrap;gap:12px">
+      <a href="Contact.dc.html" style="display:flex;align-items:center;gap:14px;height:52px;padding:4px 4px 4px 24px;border-radius:300px;background:#0E1110;color:#FFFFFF;font-size:15px;font-weight:700" style-hover="background:#1B201E">Book a free consultation<span aria-hidden="true" style="width:44px;height:44px;border-radius:300px;background:#CBF24C;color:#0E1110;display:grid;place-items:center">→</span></a>
+      <a href="#included" style="display:flex;align-items:center;height:52px;padding:0 24px;border-radius:300px;border:1px solid #0E1110;font-size:15px;font-weight:700" style-hover="background:#0E1110;color:#FFFFFF">What’s included</a>
+    </div>
+  </div>
+  <div data-m="hero-panel" style="position:relative;min-height:520px;overflow:hidden;background:#E8E8E5">
+    <img src="{{ svc.hero }}" alt="{{ svc.title }} installation" data-m="parallax" style="position:absolute;inset:-6% 0;width:100%;height:112%;object-fit:cover;display:block">
+    <div style="position:absolute;left:clamp(16px,2vw,28px);bottom:clamp(16px,2vw,28px);max-width:300px;padding:22px 24px;background:#CBF24C;color:#0E1110;display:grid;gap:6px">
+      <span style="font-size:clamp(30px,2.6vw,40px);font-weight:700;line-height:1;letter-spacing:-0.04em">{{ svc.statVal }}</span>
+      <span style="font-size:14px;font-weight:700;line-height:1.35">{{ svc.statLabel }}</span>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="intro-h" data-screen-label="Overview" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(32px,5vw,80px);align-items:center;padding:clamp(72px,8vw,120px) clamp(16px,3.75vw,54px)">
+  <div style="display:grid;gap:24px">
+    <p data-m="reveal" style="margin:0;font-size:24px;font-weight:700;letter-spacing:-0.02em">Overview</p>
+    <h2 id="intro-h" data-fill="" style="margin:0;font-size:clamp(30px,3vw,44px);font-weight:700;line-height:1.18;letter-spacing:-0.03em;text-wrap:pretty">{{ svc.intro }}</h2>
+  </div>
+  <div data-m="reveal" style="position:relative;aspect-ratio:4/3;overflow:hidden;background:#E8E8E5">
+    <img src="{{ svc.img1 }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block">
+  </div>
+</section>
+
+<section aria-labelledby="ben-h" data-screen-label="Benefits" style="padding:0 clamp(16px,3.75vw,54px) clamp(72px,8vw,120px)">
+  <h2 id="ben-h" data-m="reveal" style="margin:0 0 40px;font-size:clamp(34px,3.6vw,52px);font-weight:700;line-height:1.1;letter-spacing:-0.03em">Why it’s <span style="color:#A8CC2A">done properly</span></h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:10px">
+    <sc-for list="{{ points }}" as="p" hint-placeholder-count="4">
+      <div data-m="reveal" style="display:grid;gap:40px;align-content:space-between;padding:28px;min-height:260px;background:#FFFFFF;transition:background .3s" style-hover="background:#CBF24C">
+        <span style="font-size:14px;font-weight:700;color:#6C7566">{{ p.num }}</span>
+        <div style="display:grid;gap:10px"><h3 style="margin:0;font-size:24px;font-weight:700;line-height:1.15;letter-spacing:-0.02em">{{ p.title }}</h3><p style="margin:0;font-size:16px;font-weight:500;line-height:1.5;color:#3A403B">{{ p.body }}</p></div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section id="included" aria-labelledby="inc-h" data-screen-label="What's included" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:10px;padding:10px;background:#0E1110;color:#FFFFFF">
+  <div style="display:grid;gap:40px;align-content:space-between;padding:clamp(40px,5vw,80px) clamp(18px,3vw,44px)">
+    <div style="display:grid;gap:20px">
+      <p data-m="reveal" style="margin:0;font-size:24px;font-weight:700;letter-spacing:-0.02em;color:#CBF24C">What’s included</p>
+      <h2 id="inc-h" data-m="reveal" style="margin:0;font-size:clamp(34px,3.6vw,52px);font-weight:700;line-height:1.1;letter-spacing:-0.03em">One team, survey to switch-on.</h2>
+    </div>
+    <ul style="list-style:none;margin:0;padding:0;display:grid">
+      <sc-for list="{{ included }}" as="i" hint-placeholder-count="5">
+        <li data-m="reveal" style="display:grid;grid-template-columns:36px 1fr;gap:16px;align-items:center;padding:18px 0;border-top:1px solid #2A2F2C;font-size:clamp(18px,1.5vw,22px);font-weight:700;letter-spacing:-0.01em"><span aria-hidden="true" style="width:28px;height:28px;border-radius:50%;background:#CBF24C;color:#0E1110;display:grid;place-items:center;font-size:14px">✓</span>{{ i.text }}</li>
+      </sc-for>
+    </ul>
+  </div>
+  <div style="position:relative;min-height:520px;overflow:hidden">
+    <img src="{{ svc.img2 }}" alt="" data-m="parallax" style="position:absolute;inset:-6% 0;width:100%;height:112%;object-fit:cover;display:block">
+  </div>
+</section>
+
+<section aria-labelledby="proc-h" data-screen-label="Process" style="padding:clamp(72px,8vw,120px) clamp(16px,3.75vw,54px)">
+  <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:24px;margin-bottom:40px">
+    <h2 id="proc-h" data-m="reveal" style="margin:0;font-size:clamp(34px,3.6vw,52px);font-weight:700;line-height:1.1;letter-spacing:-0.03em">How it <span style="color:#A8CC2A">works</span></h2>
+    <a data-m="reveal" href="About.dc.html#process" style="font-size:15px;font-weight:700;border-bottom:1.5px solid #CBF24C;padding-bottom:2px">Our full process →</a>
+  </div>
+  <ol style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:10px">
+    <sc-for list="{{ steps }}" as="s" hint-placeholder-count="4">
+      <li data-m="reveal" style="display:grid;gap:14px;padding:24px 0;border-top:2px solid #0E1110">
+        <span style="font-size:14px;font-weight:700;color:#6C7566">Step {{ s.num }}</span>
+        <h3 style="margin:0;font-size:22px;font-weight:700;letter-spacing:-0.02em">{{ s.title }}</h3>
+        <p style="margin:0;font-size:15px;font-weight:500;line-height:1.5;color:#3A403B;max-width:300px">{{ s.body }}</p>
+      </li>
+    </sc-for>
+  </ol>
+</section>
+
+<sc-if value="{{ hasCase }}" hint-placeholder-val="{{ true }}">
+<section aria-labelledby="case-h" data-screen-label="Related case study" style="padding:0 10px">
+  <a href="{{ caseItem.href }}" data-m="reveal" style="position:relative;display:block;height:clamp(480px,52vw,720px);overflow:hidden;background:#0E1110;color:#FFFFFF">
+    <img src="{{ caseItem.hero }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.04)">
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,17,16,0) 35%,rgba(14,17,16,.9) 100%)"></div>
+    <div style="position:absolute;left:clamp(20px,3vw,44px);right:clamp(20px,3vw,44px);bottom:clamp(24px,3vw,44px);display:grid;gap:20px">
+      <span style="justify-self:start;padding:8px 16px;border-radius:50px;background:#CBF24C;color:#0E1110;font-size:14px;font-weight:700">Case study · {{ caseItem.place }}</span>
+      <h2 id="case-h" style="margin:0;max-width:900px;font-size:clamp(36px,4.6vw,68px);font-weight:700;line-height:1;letter-spacing:-0.04em">{{ caseItem.title }}</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:12px 40px">
+        <sc-for list="{{ caseStats }}" as="c" hint-placeholder-count="3">
+          <div style="display:grid;gap:4px"><span style="font-size:28px;font-weight:700;letter-spacing:-0.03em">{{ c.v }}</span><span style="font-size:13px;font-weight:700;color:#B9BFB6">{{ c.l }}</span></div>
+        </sc-for>
+      </div>
+    </div>
+  </a>
+</section>
+</sc-if>
+
+<div data-marquee="left" aria-hidden="true" style="overflow:hidden;background:#CBF24C;padding:clamp(22px,3vw,40px) 0">
+  <div data-marquee-track="" style="display:flex;width:max-content;will-change:transform"><div style="display:flex;align-items:center;gap:clamp(28px,4vw,56px);padding-right:clamp(28px,4vw,56px);flex:none"><span style="font-size:clamp(36px,5vw,80px);font-weight:700;letter-spacing:-0.04em;line-height:1;white-space:nowrap;color:#0E1110">Solar PV</span><span style="width:clamp(14px,1.4vw,22px);height:clamp(14px,1.4vw,22px);border-radius:50%;background:#0E1110;flex:none"></span><span style="font-size:clamp(36px,5vw,80px);font-weight:700;letter-spacing:-0.04em;line-height:1;white-space:nowrap;color:#0E1110">Battery Storage</span><span style="width:clamp(14px,1.4vw,22px);height:clamp(14px,1.4vw,22px);border-radius:50%;background:#0E1110;flex:none"></span><span style="font-size:clamp(36px,5vw,80px);font-weight:700;letter-spacing:-0.04em;line-height:1;white-space:nowrap;color:#0E1110">Heat Pumps</span><span style="width:clamp(14px,1.4vw,22px);height:clamp(14px,1.4vw,22px);border-radius:50%;background:#0E1110;flex:none"></span><span style="font-size:clamp(36px,5vw,80px);font-weight:700;letter-spacing:-0.04em;line-height:1;white-space:nowrap;color:#0E1110">EV Chargers</span><span style="width:clamp(14px,1.4vw,22px);height:clamp(14px,1.4vw,22px);border-radius:50%;background:#0E1110;flex:none"></span><span style="font-size:clamp(36px,5vw,80px);font-weight:700;letter-spacing:-0.04em;line-height:1;white-space:nowrap;color:#0E1110">Underfloor Heating</span><span style="width:clamp(14px,1.4vw,22px);height:clamp(14px,1.4vw,22px);border-radius:50%;background:#0E1110;flex:none"></span></div><div style="display:flex;align-items:center;gap:clamp(28px,4vw,56px);padding-right:clamp(28px,4vw,56px);flex:none"><span style="font-size:clamp(36px,5vw,80px);font-weight:700;letter-spacing:-0.04em;line-height:1;white-space:nowrap;color:#0E1110">Solar PV</span><span style="width:clamp(14px,1.4vw,22px);height:clamp(14px,1.4vw,22px);border-radius:50%;background:#0E1110;flex:none"></span><span style="font-size:clamp(36px,5vw,80px);font-weight:700;letter-spacing:-0.04em;line-height:1;white-space:nowrap;color:#0E1110">Battery Storage</span><span style="width:clamp(14px,1.4vw,22px);height:clamp(14px,1.4vw,22px);border-radius:50%;background:#0E1110;flex:none"></span><span style="font-size:clamp(36px,5vw,80px);font-weight:700;letter-spacing:-0.04em;line-height:1;white-space:nowrap;color:#0E1110">Heat Pumps</span><span style="width:clamp(14px,1.4vw,22px);height:clamp(14px,1.4vw,22px);border-radius:50%;background:#0E1110;flex:none"></span><span style="font-size:clamp(36px,5vw,80px);font-weight:700;letter-spacing:-0.04em;line-height:1;white-space:nowrap;color:#0E1110">EV Chargers</span><span style="width:clamp(14px,1.4vw,22px);height:clamp(14px,1.4vw,22px);border-radius:50%;background:#0E1110;flex:none"></span><span style="font-size:clamp(36px,5vw,80px);font-weight:700;letter-spacing:-0.04em;line-height:1;white-space:nowrap;color:#0E1110">Underfloor Heating</span><span style="width:clamp(14px,1.4vw,22px);height:clamp(14px,1.4vw,22px);border-radius:50%;background:#0E1110;flex:none"></span></div></div>
+</div>
+
+<section aria-labelledby="faq-h" data-screen-label="FAQ" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:40px clamp(40px,6vw,120px);padding:clamp(72px,8vw,120px) clamp(16px,3.75vw,54px)">
+  <h2 id="faq-h" data-m="reveal" style="margin:0;font-size:clamp(34px,3.6vw,52px);font-weight:700;line-height:1.1;letter-spacing:-0.03em">{{ svc.title }} <span style="color:#A8CC2A">questions</span></h2>
+  <div style="display:grid;border-top:1px solid #D3D6D0">
+    <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="3">
+      <div style="border-bottom:1px solid #D3D6D0">
+        <h3 style="margin:0"><button type="button" aria-expanded="{{ f.expanded }}" onClick="{{ f.toggle }}" style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:24px 0;background:none;border:0;text-align:left;font-size:clamp(18px,1.5vw,22px);font-weight:700;letter-spacing:-0.02em;color:#0E1110;cursor:pointer">{{ f.q }}<span aria-hidden="true" style="flex:none;width:36px;height:36px;border-radius:50%;background:{{ f.dotBg }};display:grid;place-items:center;font-size:18px;transition:transform .3s,background .3s;transform:{{ f.rot }}">+</span></button></h3>
+        <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}"><p data-m="faq-a" style="margin:0;padding:0 56px 24px 0;font-size:16px;font-weight:500;line-height:1.55;color:#3A403B">{{ f.a }}</p></sc-if>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section aria-labelledby="more-h" data-screen-label="Other services" style="padding:0 clamp(16px,3.75vw,54px) clamp(72px,8vw,120px)">
+  <h2 id="more-h" data-m="reveal" style="margin:0 0 28px;font-size:24px;font-weight:700;letter-spacing:-0.02em">Works well with</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:10px">
+    <sc-for list="{{ others }}" as="o" hint-placeholder-count="3">
+      <a href="{{ o.href }}" data-m="reveal" style="display:grid;grid-template-columns:96px 1fr;gap:18px;align-items:center;padding:10px;background:#FFFFFF;transition:background .3s" style-hover="background:#CBF24C">
+        <img src="{{ o.hero }}" alt="" style="width:96px;height:96px;object-fit:cover;display:block">
+        <span style="display:grid;gap:4px"><span style="font-size:20px;font-weight:700;letter-spacing:-0.02em">{{ o.title }} →</span><span style="font-size:14px;font-weight:500;color:#3A403B;line-height:1.4">{{ o.short }}</span></span>
+      </a>
+    </sc-for>
+  </div>
+</section>
+
+<section aria-labelledby="cta-h" data-screen-label="CTA" style="margin:0 10px 10px;padding:clamp(48px,6vw,88px) clamp(20px,3.5vw,54px);background:#CBF24C;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:32px">
+  <h2 id="cta-h" data-m="reveal" style="margin:0;max-width:760px;font-size:clamp(36px,4.4vw,64px);font-weight:700;line-height:1;letter-spacing:-0.04em">Get a straight answer on what your property needs.</h2>
+  <a data-m="reveal" href="Contact.dc.html" style="display:flex;align-items:center;gap:14px;height:56px;padding:4px 4px 4px 26px;border-radius:300px;background:#0E1110;color:#FFFFFF;font-size:16px;font-weight:700" style-hover="background:#1B201E">Book a free consultation<span aria-hidden="true" style="width:48px;height:48px;border-radius:300px;background:#FFFFFF;color:#0E1110;display:grid;place-items:center">→</span></a>
+</section>
+</main>
+
+<dc-import name="SiteFooter" hint-size="100%,560px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;slug&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;solar-pv&quot;,&quot;battery-storage&quot;,&quot;heat-pumps&quot;,&quot;ev-chargers&quot;,&quot;underfloor-heating&quot;],&quot;default&quot;:&quot;solar-pv&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { faq: 0, ready: !!window.SK };
+  CASE_FOR = { 'solar-pv': 'barn-conversion', 'battery-storage': 'dunfermline-semi', 'heat-pumps': 'kinross-farmhouse', 'ev-chargers': 'perthshire-new-home', 'underfloor-heating': 'halbeath-development' };
+  OTHERS = { 'solar-pv': ['battery-storage', 'ev-chargers', 'heat-pumps'], 'battery-storage': ['solar-pv', 'ev-chargers', 'heat-pumps'], 'heat-pumps': ['underfloor-heating', 'solar-pv', 'battery-storage'], 'ev-chargers': ['solar-pv', 'battery-storage', 'heat-pumps'], 'underfloor-heating': ['heat-pumps', 'solar-pv', 'battery-storage'] };
+  componentDidMount() {
+    if (!window.SK) { this.onReady = () => this.setState({ ready: true }); window.addEventListener('sk-ready', this.onReady); }
+    this.initMotion();
+  }
+  componentWillUnmount() { this.onReady && window.removeEventListener('sk-ready', this.onReady); clearTimeout(this.mt); }
+  componentDidUpdate(pp, ps) {
+    if (!ps.ready && this.state.ready) { this.motionDone = false; this.initMotion(); }
+    const M = window.Motion;
+    if (M && !this.reduced && ps.faq !== this.state.faq) requestAnimationFrame(() => document.querySelectorAll('[data-m="faq-a"]').forEach(el => M.animate(el, { opacity: [0, 1], transform: ['translateY(12px)', 'translateY(0px)'] }, { duration: 0.6, ease: [0.22, 1, 0.36, 1] })));
+  }
+  initMotion() {
+    const M = window.Motion;
+    if (!M || !window.SK) { this.mt = setTimeout(() => this.initMotion(), 120); return; }
+    if (this.motionDone) return; this.motionDone = true;
+    this.reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (this.reduced) return;
+    requestAnimationFrame(() => {
+      const { animate, inView, scroll, stagger } = M; const ease = [0.22, 1, 0.36, 1];
+      const q = (s) => Array.from(document.querySelectorAll(s));
+      animate(q('[data-m="hero"]'), { opacity: [0, 1], transform: ['translateY(40px)', 'translateY(0px)'] }, { duration: 1.1, delay: stagger(0.08, { startDelay: 0.1 }), ease });
+      q('[data-m="hero-panel"]').forEach(el => animate(el, { clipPath: ['inset(100% 0% 0% 0%)', 'inset(0% 0% 0% 0%)'] }, { duration: 1.4, ease }));
+      q('[data-m="reveal"]').forEach(el => { el.style.opacity = '0'; inView(el, () => { animate(el, { opacity: [0, 1], transform: ['translateY(48px)', 'translateY(0px)'] }, { duration: 1, ease }); }, { amount: 0.15 }); });
+      q('[data-m="parallax"]').forEach(el => scroll(animate(el, { transform: ['translateY(-5%)', 'translateY(5%)'] }, { ease: 'linear' }), { target: el.parentElement, offset: ['start end', 'end start'] }));
+    });
+  }
+  renderVals() {
+    const SK = window.SK;
+    if (!SK) return { svc: {}, points: [], included: [], steps: [], faqs: [], others: [], hasCase: false, caseItem: {}, caseStats: [], docTitle: 'SK Energy' };
+    const slug = SK.slug() || this.props.slug || 'solar-pv';
+    const s = SK.SERVICES.find(x => x.slug === slug) || SK.SERVICES[0];
+    const c = SK.CASES.find(x => x.slug === this.CASE_FOR[s.slug]);
+    const st = this.state;
+    return {
+      docTitle: s.title + ' — SK Energy',
+      svc: { ...s, statVal: s.stat[0], statLabel: s.stat[1], img1: s.imgs[0], img2: s.imgs[1] || s.imgs[0] },
+      points: s.points.map((p, i) => ({ num: '0' + (i + 1), title: p[0], body: p[1] })),
+      included: s.included.map(text => ({ text })),
+      steps: [['Book a consultation', 'Tell us about your property and priorities. No obligation.'], ['Bespoke design', 'A considered design, modelled and costed clearly.'], ['Professional install', 'Accredited, careful workmanship with minimal disruption.'], ['Ongoing support', 'Monitoring, servicing and the same team on call.']].map((x, i) => ({ num: '0' + (i + 1), title: x[0], body: x[1] })),
+      hasCase: !!c, caseItem: c ? { ...c, href: SK.page.caseStudy(c.slug) } : {}, caseStats: c ? c.stats.map(([v, l]) => ({ v, l })) : [],
+      faqs: s.faqs.map(([q, a], i) => ({ q, a, open: st.faq === i, expanded: st.faq === i ? 'true' : 'false', rot: st.faq === i ? 'rotate(45deg)' : 'none', dotBg: st.faq === i ? '#CBF24C' : '#E8E8E5', toggle: () => this.setState(x => ({ faq: x.faq === i ? -1 : i })) })),
+      others: (this.OTHERS[s.slug] || []).map(k => SK.SERVICES.find(x => x.slug === k)).filter(Boolean).map(o => ({ ...o, href: SK.page.service(o.slug) }))
+    };
+  }
+}
+</script>
+</body>
+</html>
